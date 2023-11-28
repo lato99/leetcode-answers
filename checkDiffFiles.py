@@ -1,6 +1,8 @@
 import os
 
+#languages to check files for
 pLanguages = ["python","java","javascript"]
+
 
 
 def findDirs(pList):
@@ -13,13 +15,24 @@ def findDirs(pList):
             dirs.append(dir)
     return dirs
 
+def getQuestionNo(s : str) -> str:
+    parts = s.split(".") 
+    return parts[0]
+
 allFiles = [os.listdir(x) for x in findDirs(pLanguages)]
-for list in allFiles:
-    for x in list:
-        print(x)
-
-
-
-
 allQuestions = set()
+for dirName in allFiles:
+    for question in dirName:
+        allQuestions.add(getQuestionNo(question))
 
+for dirName in allFiles:
+    diff = set()
+    for question in dirName:
+        diff.add(getQuestionNo(question))
+    print(allQuestions - diff)
+    print(diff-allQuestions)
+    diff = allQuestions - diff
+    print("Missing questions in "+  + " are: ")
+    for qNo in diff:
+        print(qNo + "\n")
+    
