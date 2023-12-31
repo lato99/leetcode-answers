@@ -1,3 +1,4 @@
+from ast import List
 class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
         return self.dp(jobDifficulty,d)
