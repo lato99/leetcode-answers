@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class Solution {
     public int minDifficulty(int[] jobDifficulty, int d) {
         return dpHelper(jobDifficulty, d);
