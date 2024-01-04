@@ -1,3 +1,6 @@
+from ast import List
+
+
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         #put num, occurence into hash_map
