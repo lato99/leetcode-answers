@@ -1,3 +1,6 @@
+from ast import List
+
+
 class Solution:
     def numberOfArithmeticSlices(self, nums: List[int]) -> int:
         n = len(nums)
