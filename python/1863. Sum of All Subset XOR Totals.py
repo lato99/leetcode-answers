@@ -25,3 +25,15 @@ class Solution:
         return total
 
 
+# Second Solution - improved time complexity and space complexity
+# Time Complexity : O(2^n) where n is the length of nums. Calculating all the subsets will take O(2^n) time.
+# Space Complexity : O(n) where n is the length of nums. There are no data structures, the space complexity is determined by the call stack from recursion. The recursion call stack can at most be n.
+class Solution:
+    def subsetXORSum(self, nums: List[int]) -> int:
+        return self.calculateXORSum(nums,0,0)
+    def calculateXORSum(self,nums,index,total):
+        if index == len(nums):
+            return total
+        withIndex = self.calculateXORSum(nums,index+1,nums[index] ^ total)
+        withoutIndex = self.calculateXORSum(nums,index+1,total)
+        return withIndex + withoutIndex
