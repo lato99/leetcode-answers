@@ -13,4 +13,3 @@ class Solution:
             total_count += self.helper(nums,i+1,k,freq)
             freq.remove(nums[i])
         return total_count
-
